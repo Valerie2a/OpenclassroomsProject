@@ -1,0 +1,395 @@
+@use "variable" as variable;
+@use "sass:color";
+@use "color" as c;
+@use "button";
+@use "mixin" as mixin;
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+  font-family: 'Shrikhand';
+}
+
+.body {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+  margin: auto;
+}
+
+.header {
+  padding: 2%;
+
+  &__logo {
+    margin: 0;
+    text-align: center;
+    @include mixin.feature__logo;
+  }
+
+  @include mixin.desktop__responsive {
+    font-size: 32px;
+  }
+}
+
+.search__location {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(234.6, 234.6, 234.6);
+  box-shadow: inset 0 10px 8px -5px #d5d5d5;
+  gap: 17px;
+}
+
+.search__icon {
+  display: flex;
+  align-items: center;
+  color: c.$black;
+}
+
+.search__form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 109px;
+
+  .search__city {
+    border: transparent;
+    background-color: #EAEAEA;
+  }
+
+  .placeholder {
+    position: absolute;
+    top: 50%; // L'élément est positionné avec top: 50%, ce qui place son haut à 50% de la hauteur du conteneur
+    transform: translateY(-50%); // Déplace l'élément de 50% de sa propre hauteur vers le haut, ce qui le centre parfaitement
+    color: #353535;
+    pointer-events: none;
+  }
+
+  .search__city:focus + .placeholder {
+    display: none;
+  }
+}
+
+.menurestaurant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 20px 0;
+  background-color: color.scale(c.$white, $lightness: -3%); // couleur du fond assombrie
+  text-align: center;
+
+  &__title {
+    width: 70%;
+    margin: 10px 0;
+    @include mixin.title__heading;
+  }
+
+  & p {
+    width: 85%;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 300;
+  }
+}
+
+.btn {
+  color: c.$white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.tutoriel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto; // Section centrée
+  box-sizing: border-box;
+  background-color: c.$white;
+  gap: 20px;
+
+  @include mixin.table__responsive {
+    gap: 20px;
+    padding: 10px;
+  }
+
+  @include mixin.desktop__responsive {
+    gap: 25px;
+    padding: 10px 0 40px 0px;
+    width: 90%; // Largeur ajustée en desktop
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-left: 20px;
+
+    @include mixin.table__responsive {
+      text-align: center; // Centrer le titre
+      margin: 0 auto;
+      font-size: 26px; // Taille ajustée pour tablette
+    }
+
+    @include mixin.desktop__responsive {
+      text-align: center; // Centrer le titre
+      margin: 0 auto;
+      font-size: 28px; // Taille ajustée en desktop
+    }
+  }
+
+  ol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0;
+    gap: 15px;
+    width: 100%;
+    counter-reset: steps;
+
+    @include mixin.table__responsive {
+      flex-direction: row; // Affichage horizontal pour tablette
+      gap: 20px;
+      justify-content: space-around;
+    }
+
+    @include mixin.desktop__responsive {
+      flex-direction: row; // Affichage horizontal sur tablette et desktop
+      gap: 25px;
+      width: 100%;
+      justify-content: space-between;
+      margin: 0;
+    }
+  }
+
+  li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    border-radius: 15px;
+    gap: 15px;
+    height: 70px;
+    padding: 25px;
+    background-color: c.$LightGray;
+    font-weight: bold;
+    list-style: none;
+    counter-increment: steps;
+    width: 100%; // En mobile, occupe toute la largeur
+
+    @include mixin.object-shadow;
+
+    @include mixin.table__responsive {
+      width: 48%; // Largeur ajustée pour tablette
+    }
+
+    @include mixin.desktop__responsive {
+      width: 31%; // Les 3 éléments occupent toute la largeur en desktop
+      height: 80px; // Hauteur ajustée pour le desktop
+    }
+
+    &::before { // numéros
+      content: counter(steps);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      background-color: c.$color-primary;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 50%;
+      position: absolute;
+      left: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 500;
+
+      @include mixin.desktop__responsive {
+        font-size: 18px;
+      }
+    }
+  }
+
+  i {
+    color: c.$color-primary;
+    font-size: 1.5rem; // Agrandissement des icônes
+  }
+}
+
+.restaurant {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 20px 0 66px 0;
+  background-color: c.$LightGray;
+
+  &__title {
+    width: 90%;
+    margin: 20px auto;
+    @include mixin.title__heading;
+  }
+
+  &__contenair {
+    width: 90%;
+    margin: auto;
+    @include mixin.desktop__responsive;
+    @include mixin.table__responsive {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+}
+
+.restaurant__cards {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 251px;
+  margin: auto;
+  margin-bottom: 18px;
+  border-radius: 15px;
+  background-color: c.$white;
+  @include mixin.object-shadow;
+  @include mixin.desktop__responsive;
+  @include mixin.table__responsive {
+    width: 48%;
+    margin: 0;
+    margin-bottom: 4%;
+  }
+}
+
+.restaurant__cards--img {
+  position: relative;
+  overflow: hidden;
+  height: 175px;
+  border-radius: 15px 15px 0px 0px;
+
+  img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+  }
+}
+
+.info { // "nouveau" sur les deux cards
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  width: 85px;
+  height: 30px;
+  border-radius: 2px;
+  background-color: c.$color-tertiary;
+  color: color.scale(c.$color-tertiary, $lightness: -50%);
+  font-weight: 600;
+}
+
+.restaurant__cards--content {
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  min-height: 75px;
+  padding: 15px;
+}
+
+.restaurant__cards--text {
+  width: 90%;
+}
+
+h4,
+p {
+  margin: 0;
+}
+
+h4 {
+  width: 267px;
+  height: 20px;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+p {
+  height: 24px;
+  font-weight: 300;
+  font-size: 17px;
+}
+
+.restaurant__cards--like {
+  position: absolute;
+  top: 76%;
+  right: 7%;
+  font-size: 25px;
+}
+
+.footer {
+  background-color: c.$black;
+  color: c.$white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 230px;
+
+  @include mixin.table__responsive {
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    height: 120px;
+    padding: 30px 25px;
+  }
+
+  &__logo {
+    @include mixin.logo__footer;
+    margin-left: 20px;
+    line-height: normal;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; // Espacement entre les liens
+    list-style: none;
+    padding-left: 10px;
+
+    @include mixin.table__responsive {
+      flex-direction: row; // Liens sur une seule ligne en desktop et tablette
+      align-items: center;
+      gap: 20px;
+    }
+  }
+}
+
+.footer__menu__link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  a {
+    text-decoration: none;
+    color: c.$white;
+    padding-left: 15px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  i {
+    font-size: 18px; // Taille des icônes
+    color: c.$white;
+    padding-left: 10px;
+  }
+}

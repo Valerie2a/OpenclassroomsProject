@@ -1,0 +1,40 @@
+@use "variable" as variable;
+@use "color" as c;
+
+@mixin desktop--responsive {
+    @media all and (min-width: variable.$breakpoint-desktop) {
+        // Styles spécifiques au desktop
+        font-size: 18px;
+    }
+}
+@mixin feature__logo{
+    font-size:29px;
+    font-family: Shrikhand, cursive;
+    font-weight: lighter;
+}
+@mixin logo__footer{
+    font-size:18px;
+    font-family: Shrikhand, cursive;
+    font-weight: 400;
+}    
+@mixin title__heading{
+font-size: 24px;
+    line-height: 1;
+    font-weight: 700;
+}
+@mixin background-btn{
+background-color: color.scale($linear-gradient, $lightness: 20%);
+}
+@mixin object-shadow ($color: c.$shadow) {
+    box-shadow: 0 4px 10px 0 $color;
+} 
+@mixin table__responsive {
+    @media all and (min-width: variable.$breakpoint-table) {
+        @content;
+    }
+}
+@mixin desktop__responsive {
+    @media all and (min-width: variable.$breakpoint-desktop) {
+        @content
+    }
+}
