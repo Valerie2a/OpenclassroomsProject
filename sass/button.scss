@@ -2,36 +2,43 @@
 @use "sass:color";
 @use "color" as c;
 
-.header {
-    &__goback {
+
+        .return {
         display: flex;
         align-items: center;
         justify-content: center;
         position: absolute;
-        left: 5%;
-        width: 20px;
-        height: 20px;
-        top: 35%;
+        left: 3%;
+        width: 40px;
+        height: 30px;
+        top: 2%;
         font-size: 20px;
-    }
-}
+        color: c.$black;
+        }
 
-.btn__search {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    background: c.$linear-gradient;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    padding: 13px 18.75px;
-    margin: 40px 0 30px 0;
-    border-radius: 25px;
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
-
-    &:hover {
-        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.75); // Ombré plus marqué
-        background: c.$light-gradient !important; // Couleur s'éclaircit au clic
-        transform: scale(1.00);
+.btn__search, .btn__order {
+        
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 200px;
+        background: c.$linear-gradient;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 13px 19px;
+        margin: 40px 0 30px 0;
+        border-radius: 25px;
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+        color: c.$white;
+        font-family: 'Roboto', sans-serif;
+    
+        &:hover {
+            box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.75); // Ombré plus marqué
+            background: c.$light-gradient !important; // Couleur s'éclaircit au clic
+            transform: scale(1.00);
+        }
     }
-}
+
+
