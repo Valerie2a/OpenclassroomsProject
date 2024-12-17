@@ -1,7 +1,7 @@
 @use "variable";
 @use "sass:color";
 @use "color" as c;
-
+@use "mixin" as mixin;
 
         .return {
         display: flex;
@@ -40,5 +40,11 @@
             transform: scale(1.00);
         }
     }
+    .btn__order{
+        margin:0px 0px 40px 0px;
+        @include mixin.desktop__responsive {
+        margin:0px 0px 70px 0px;
 
+    }
+}
 
