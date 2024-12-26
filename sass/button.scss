@@ -2,7 +2,7 @@
 @use "sass:color";
 @use "color" as c;
 @use "mixin" as mixin;
-
+//fleche retour
         .return {
         display: flex;
         align-items: center;
@@ -15,7 +15,7 @@
         font-size: 20px;
         color: c.$black;
         }
-
+//bouton eclaircissant et ombré 
 .btn__search, .btn__order {
         
         display:flex;
@@ -47,4 +47,58 @@
 
     }
 }
-
+//remplissage coeur 
+    .restaurant__intro--heart,.restaurant__cards--like{
+        width: 30px;
+        z-index: 0;
+        position: relative;
+        font-family: "Font Awesome 5 Free";
+        font-size: 26px;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        -webkit-text-stroke: 0.1px black; // Contour noir de départ
+        cursor: pointer;
+    
+        // Style pour l'état de survol
+        &:hover {
+            &::after {
+                z-index: 1;
+                animation: heart-fill 1s forwards ease-in-out;
+            }
+        }
+    
+        &::after {
+            z-index: -1;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 800;
+            font-size: 26px;
+            content: "\f004"; // Code unicode pour le cœur plein
+            color: transparent;
+            background-image: linear-gradient(to bottom, c.$color-secondary,c.$color-primary); // Dégradé
+            background-clip: text;
+            transform-origin: bottom;
+            -webkit-background-clip: text;
+            -webkit-text-stroke: 0; // Suppression complète de la bordure
+            transform-origin: center; // Ajuste le centre de transformation pour un meilleur rendu
+        
+        }
+    }
+    
+    // Animation pour remplir progressivement le cœur
+    @keyframes heart-fill {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

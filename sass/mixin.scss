@@ -1,6 +1,11 @@
 @use "variable" as variable;
 @use "color" as c;
 
+@mixin general{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; 
+}
+
 @mixin desktop--responsive {
     @media all and (min-width: variable.$breakpoint-desktop) {
         // Styles spécifiques au desktop

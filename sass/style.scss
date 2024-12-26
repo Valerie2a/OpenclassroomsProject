@@ -1,3 +1,4 @@
+@use "loader";
 @use "variable" as variable;
 @use "sass:color";
 @use "color" as c;
@@ -5,8 +6,7 @@
 @use "mixin" as mixin;
 
 * {
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  @include mixin.general;
 }
 
 .logo {

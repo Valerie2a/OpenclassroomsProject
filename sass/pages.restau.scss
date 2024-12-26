@@ -5,8 +5,7 @@
 @use "mixin" as mixin;
 
 * {
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    @include mixin.general;
 }
 
 .logo {
@@ -202,6 +201,7 @@
     margin: 10px 0;
     background-color: c.$white;
     @include mixin.object-shadow;
+    overflow: hidden;
 
     &--info {
         display: flex;
@@ -212,6 +212,7 @@
         width: 100%;
         margin: 2%;
         gap: 2%;
+       
     }
 
     &--content {
@@ -227,20 +228,25 @@
             font-weight: 300;
             font-size: 16px;
             margin-top: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis; 
         }
 
         h4 {
-            font-size: 20px;
-            margin-bottom: -5px;
+            font-size: 19px;
+            margin-bottom: -4px;
+            overflow: hidden;
+            text-overflow: ellipsis; 
         }
     }
 }
-
+//animation bouton vert sur la droite//
 .menu__cards--price {
     display: flex;
     align-items: flex-end;
-    width: 15%;
+    width: 23%;
     padding: 4px;
+    transition: transform 0.8s ease;
 
     @include mixin.desktop__responsive;
     @include mixin.table__responsive {
@@ -251,7 +257,88 @@
         margin: 0;
     }
 }
+.menu__cards--slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    right: -15%; /* Position initiale en dehors de la vue */
+    height: 100%;
+    width: 15%;
+    background-color:c.$color-tertiary;
+    border-radius: 0 15px 15px 0;
+    transition: all 0.8s ease; /* Transition fluide */
 
+}
+.fa-circle-check {
+        font-size: 26px;
+        color: c.$white;
+        border-color: c.$color-tertiary;
+      
+    
+}
+.menu__cards:hover .menu__cards--slide{
+    right: 0; /* Rectangle devient visible */
+}
+.menu__cards:hover .menu__cards--price {
+    transform: translateX(-30%); /* Décale uniquement le prix vers la gauche */
+}
+
+@keyframes slideUp {
+    0% {
+      transform: translateY(20%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  //cartes remontent en décalé lors de l'ouverture de la page
+  .menu__cards {
+    opacity: 0; //Rend invisible au départ 
+    animation: slideUp 0.6s ease forwards; // Animation 
+  }
+  
+  #card1 {
+    animation-delay: 0.1s; // Délai spécifique 
+  }
+  
+  #card2 {
+    animation-delay: 0.3s;
+  }
+  
+  #card3 {
+    animation-delay: 0.5s;
+  }
+  
+  #card4 {
+    animation-delay: 0.7s;
+  }
+  
+  #card5 {
+    animation-delay: 0.9s;
+  }
+  
+  #card6 {
+    animation-delay: 1.1s;
+  }
+  
+  #card7 {
+    animation-delay: 1.3s;
+  }
+  
+  #card8 {
+    animation-delay: 1.5s;
+  }
+  
+  #card9 {
+    animation-delay: 1.7s;
+  }
+  #card10 {
+    animation-delay: 1.9s;
+  }
+  
 .btn {
     display: flex;
     justify-content: center;
