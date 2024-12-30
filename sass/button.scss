@@ -1,7 +1,7 @@
-@use "variable";
 @use "sass:color";
 @use "color" as c;
 @use "mixin" as mixin;
+
 //fleche retour
         .return {
         display: flex;
@@ -16,6 +16,7 @@
         color: c.$black;
         }
 //bouton eclaircissant et ombré 
+
 .btn__search, .btn__order {
         
         display:flex;
@@ -28,16 +29,19 @@
         font-weight: 500;
         cursor: pointer;
         padding: 13px 19px;
-        margin: 40px 0 30px 0;
+        margin: 60px 0 30px 0;
         border-radius: 25px;
-        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 4px 10px 0px c.$shadow-start;
         color: c.$white;
         font-family: 'Roboto', sans-serif;
-    
+        transition: transform 400ms;
+        -webkit-transition: transform 400ms;
         &:hover {
-            box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.75); // Ombré plus marqué
-            background: c.$light-gradient !important; // Couleur s'éclaircit au clic
-            transform: scale(1.00);
+        box-shadow: 0px 4px 10px 0px c.$shadow-end; // Ombré plus marqué
+        -webkit-box-shadow: 0px 4px 10px 0px c.$shadow-end;
+        background: c.$light-gradient; // Couleur s'éclaircit au clic
+        transform: scale(1.04);
+        -webkit-transform: scale(1.04);
         }
     }
     .btn__order{
@@ -47,58 +51,48 @@
 
     }
 }
-//remplissage coeur 
-    .restaurant__intro--heart,.restaurant__cards--like{
-        width: 30px;
-        z-index: 0;
-        position: relative;
-        font-family: "Font Awesome 5 Free";
-        font-size: 26px;
-        padding: 0;
-        border: none;
-        background-color: transparent;
-        -webkit-text-stroke: 0.1px black; // Contour noir de départ
-        cursor: pointer;
-    
-        // Style pour l'état de survol
-        &:hover {
-            &::after {
-                z-index: 1;
-                animation: heart-fill 1s forwards ease-in-out;
-            }
-        }
-    
-        &::after {
-            z-index: -1;
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            font-family: "Font Awesome 5 Free";
-            font-weight: 800;
-            font-size: 26px;
-            content: "\f004"; // Code unicode pour le cœur plein
-            color: transparent;
-            background-image: linear-gradient(to bottom, c.$color-secondary,c.$color-primary); // Dégradé
-            background-clip: text;
-            transform-origin: bottom;
-            -webkit-background-clip: text;
-            -webkit-text-stroke: 0; // Suppression complète de la bordure
-            transform-origin: center; // Ajuste le centre de transformation pour un meilleur rendu
-        
-        }
+.restaurant__cards--like, 
+.restaurant__intro--heart {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    font-size: 26px;
+    cursor: pointer;
+
+    // Cœur vide
+    i.fa-regular.fa-heart {
+        position: absolute;
+        z-index: 2; // Toujours au-dessus au départ
+        -webkit-text-stroke: c.$black; // Bordure noire
+        transition: opacity 0.3s ease, color 0.3s ease; // Transition douce
+        -webkit-transition: opacity 0.3s ease, color 0.3s ease;
     }
-    
-    // Animation pour remplir progressivement le cœur
-    @keyframes heart-fill {
-    0% {
-        opacity: 0;
-        transform: scale(0.5);
+
+    // Cœur plein (initialement masqué)
+    i.fa-solid.fa-heart {
+        position: absolute;
+        z-index: 1; // Placé en dessous par défaut
+        opacity: 0; // Invisible au départ
+        color: transparent; // Transparence pour utiliser le dégradé
+        background-image: linear-gradient(to bottom, c.$color-primary, c.$color-secondary);
+        -webkit-background-image: linear-gradient(to bottom, c.$color-primary, c.$color-secondary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 0; // Pas de bordure pour le cœur plein
+        transition: opacity 0.3s ease; // Transition douce pour l'apparition
+        -webkit-transition: opacity 0.3s ease;
     }
-    100% {
-        opacity: 1;
-        transform: scale(1);
+
+    // Survol - Remplir le cœur
+    &:hover {
+        i.fa-regular.fa-heart {
+            opacity: 0; // Cacher le cœur vide
+        }
+
+        i.fa-solid.fa-heart {
+            opacity: 1; // Faire apparaître le cœur plein
+            z-index: 2; // Placer au-dessus
+        }
     }
 }

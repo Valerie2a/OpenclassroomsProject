@@ -1,16 +1,9 @@
-@use "loader";
-@use "variable" as variable;
 @use "sass:color";
 @use "color" as c;
 @use "button";
 @use "mixin" as mixin;
-
 * {
   @include mixin.general;
-}
-
-.logo {
-  font-family: 'Shrikhand';
 }
 
 .body {
@@ -42,8 +35,8 @@
   height: 50px;
   justify-content: center;
   align-items: center;
-  background-color: rgb(234.6, 234.6, 234.6);
-  box-shadow: inset 0 10px 8px -5px #d5d5d5;
+  background-color: c.$mediumGray;
+  box-shadow: inset 0 10px 8px -5px c.$shadow-light;
   gap: 17px;
 }
 
@@ -68,7 +61,8 @@
     position: absolute;
     top: 50%; // L'élément est positionné avec top: 50%, ce qui place son haut à 50% de la hauteur du conteneur
     transform: translateY(-50%); // Déplace l'élément de 50% de sa propre hauteur vers le haut, ce qui le centre parfaitement
-    color: #353535;
+    -webkit-transform: translateY(-50%); // Préfixe pour Safari
+    color: c.$darkGray;
     pointer-events: none;
   }
 
@@ -159,7 +153,7 @@
     }
 
     @include mixin.desktop__responsive {
-      flex-direction: row; // Affichage horizontal sur tablette et desktop
+      flex-direction: row; // Affichage horizontal sur desktop
       gap: 25px;
       width: 100%;
       justify-content: space-between;
@@ -181,7 +175,13 @@
     list-style: none;
     counter-increment: steps;
     width: 100%; // En mobile, occupe toute la largeur
-
+    &:hover {
+      transform: scale(1.05);
+      -webkit-transform: scale(1.05); 
+      box-shadow: 0 4px 15px c.$shadow-start;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      -webkit-transition: -webkit-transform 0.3s ease, box-shadow 0.3s ease;
+    }
     @include mixin.object-shadow;
 
     @include mixin.table__responsive {
@@ -209,6 +209,7 @@
       left: -25px;
       top: 50%;
       transform: translateY(-50%);
+      -webkit-transform: translateY(-50%); 
     }
 
     p {
@@ -268,6 +269,13 @@
     margin: 0;
     margin-bottom: 4%;
   }
+  &:hover {
+    transform: scale(1.04);
+    -webkit-transform: scale(1.04); 
+    box-shadow: 0 4px 15px c.$shadow-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    -webkit-transition: -webkit-transform 0.3s ease, box-shadow 0.3s ease; 
+  }
 }
 
 .restaurant__cards--img {
@@ -280,6 +288,8 @@
     width: 100%;
     height: 175px;
     object-fit: cover;
+    -webkit-object-fit: cover; // Préfixe pour Safari
+
   }
 }
 

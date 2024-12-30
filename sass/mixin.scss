@@ -1,4 +1,3 @@
-@use "variable" as variable;
 @use "color" as c;
 
 @mixin general{
@@ -7,7 +6,7 @@
 }
 
 @mixin desktop--responsive {
-    @media all and (min-width: variable.$breakpoint-desktop) {
+    @media all and (min-width: $breakpoint-desktop) {
         // Styles spécifiques au desktop
         font-size: 18px;
     }
@@ -34,12 +33,14 @@ background-color: color.scale($linear-gradient, $lightness: 20%);
     box-shadow: 0 4px 10px 0 $color;
 } 
 @mixin table__responsive {
-    @media all and (min-width: variable.$breakpoint-table) {
+    @media all and (min-width: $breakpoint-table) {
         @content;
     }
 }
 @mixin desktop__responsive {
-    @media all and (min-width: variable.$breakpoint-desktop) {
+    @media all and (min-width: $breakpoint-desktop) {
         @content
     }
 }
+$breakpoint-table: 768px;
+$breakpoint-desktop: 1024px;

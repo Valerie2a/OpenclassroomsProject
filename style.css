@@ -1,43 +1,96 @@
-.header .return {
+.return {
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  left: 5%;
-  width: 20px;
-  height: 20px;
-  top: 45%;
+  left: 3%;
+  width: 40px;
+  height: 30px;
+  top: 2%;
   font-size: 20px;
+  color: #353535;
 }
 
-.btn {
+.btn__search, .btn__order {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 50px;
+  width: 200px;
   background: linear-gradient(175deg, #FF79DA, #9356DC);
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  padding: 13px 18.75px;
-  margin: 40px 0 30px 0;
+  padding: 13px 19px;
+  margin: 60px 0 30px 0;
   border-radius: 25px;
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
   color: #ffffff;
   font-family: "Roboto", sans-serif;
+  transition: transform 400ms;
+  -webkit-transition: transform 400ms;
 }
-.btn:hover {
-  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.75);
-  background: linear-gradient(175deg, rgba(255, 121, 218, 0.7803921569), rgba(147, 86, 220, 0.6588235294)) !important;
-  transform: scale(1);
+.btn__search:hover, .btn__order:hover {
+  box-shadow: 0px 4px 10px 0px rgb(0, 0, 0);
+  -webkit-box-shadow: 0px 4px 10px 0px rgb(0, 0, 0);
+  background: linear-gradient(175deg, rgba(255, 121, 218, 0.7803921569), rgba(147, 86, 220, 0.6588235294));
+  transform: scale(1.04);
+  -webkit-transform: scale(1.04);
+}
+
+.btn__order {
+  margin: 0px 0px 40px 0px;
+}
+@media all and (min-width: 1024px) {
+  .btn__order {
+    margin: 0px 0px 70px 0px;
+  }
+}
+
+.restaurant__cards--like,
+.restaurant__intro--heart {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  font-size: 26px;
+  cursor: pointer;
+}
+.restaurant__cards--like i.fa-regular.fa-heart,
+.restaurant__intro--heart i.fa-regular.fa-heart {
+  position: absolute;
+  z-index: 2;
+  -webkit-text-stroke: #353535;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  -webkit-transition: opacity 0.3s ease, color 0.3s ease;
+}
+.restaurant__cards--like i.fa-solid.fa-heart,
+.restaurant__intro--heart i.fa-solid.fa-heart {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  color: transparent;
+  background-image: linear-gradient(to bottom, #9356DC, #FF79DA);
+  -webkit-background-image: linear-gradient(to bottom, #9356DC, #FF79DA);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0;
+  transition: opacity 0.3s ease;
+  -webkit-transition: opacity 0.3s ease;
+}
+.restaurant__cards--like:hover i.fa-regular.fa-heart,
+.restaurant__intro--heart:hover i.fa-regular.fa-heart {
+  opacity: 0;
+}
+.restaurant__cards--like:hover i.fa-solid.fa-heart,
+.restaurant__intro--heart:hover i.fa-solid.fa-heart {
+  opacity: 1;
+  z-index: 2;
 }
 
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-}
-
-.logo {
-  font-family: "Shrikhand";
 }
 
 .body {
@@ -72,7 +125,7 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(234.6, 234.6, 234.6);
-  box-shadow: inset 0 10px 8px -5px #d5d5d5;
+  box-shadow: inset 0 10px 8px -5px rgba(0, 0, 0, 0.15);
   gap: 17px;
 }
 
@@ -96,6 +149,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
   color: #353535;
   pointer-events: none;
 }
@@ -213,6 +267,13 @@
   width: 100%;
   box-shadow: 0 4px 10px 0 #d5d5d5;
 }
+.tutoriel li:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  -webkit-transition: -webkit-transform 0.3s ease, box-shadow 0.3s ease;
+}
 @media all and (min-width: 768px) {
   .tutoriel li {
     width: 48%;
@@ -240,6 +301,7 @@
   left: -25px;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
 }
 .tutoriel li p {
   font-size: 16px;
@@ -299,6 +361,13 @@
     margin-bottom: 4%;
   }
 }
+.restaurant__cards:hover {
+  transform: scale(1.04);
+  -webkit-transform: scale(1.04);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  -webkit-transition: -webkit-transform 0.3s ease, box-shadow 0.3s ease;
+}
 
 .restaurant__cards--img {
   position: relative;
@@ -310,6 +379,7 @@
   width: 100%;
   height: 175px;
   object-fit: cover;
+  -webkit-object-fit: cover;
 }
 
 .info {
