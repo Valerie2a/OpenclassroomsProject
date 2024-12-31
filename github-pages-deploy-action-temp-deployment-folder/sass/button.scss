@@ -1,0 +1,98 @@
+@use "sass:color";
+@use "color" as c;
+@use "mixin" as mixin;
+
+//fleche retour
+        .return {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 3%;
+        width: 40px;
+        height: 30px;
+        top: 2%;
+        font-size: 20px;
+        color: c.$black;
+        }
+//bouton eclaircissant et ombré 
+
+.btn__search, .btn__order {
+        
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 200px;
+        background: c.$linear-gradient;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 13px 19px;
+        margin: 60px 0 30px 0;
+        border-radius: 25px;
+        box-shadow: 0px 4px 10px 0px c.$shadow-start;
+        color: c.$white;
+        font-family: 'Roboto', sans-serif;
+        transition: transform 400ms;
+        -webkit-transition: transform 400ms;
+        &:hover {
+        box-shadow: 0px 4px 10px 0px c.$shadow-end; // Ombré plus marqué
+        -webkit-box-shadow: 0px 4px 10px 0px c.$shadow-end;
+        background: c.$light-gradient; // Couleur s'éclaircit au clic
+        transform: scale(1.04);
+        -webkit-transform: scale(1.04);
+        }
+    }
+    .btn__order{
+        margin:0px 0px 40px 0px;
+        @include mixin.desktop__responsive {
+        margin:0px 0px 70px 0px;
+
+    }
+}
+.restaurant__cards--like, 
+.restaurant__intro--heart {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    font-size: 26px;
+    cursor: pointer;
+
+    // Cœur vide
+    i.fa-regular.fa-heart {
+        position: absolute;
+        z-index: 2; // Toujours au-dessus au départ
+        -webkit-text-stroke: c.$black; // Bordure noire
+        transition: opacity 0.3s ease, color 0.3s ease; // Transition douce
+        -webkit-transition: opacity 0.3s ease, color 0.3s ease;
+    }
+
+    // Cœur plein (initialement masqué)
+    i.fa-solid.fa-heart {
+        position: absolute;
+        z-index: 1; // Placé en dessous par défaut
+        opacity: 0; // Invisible au départ
+        color: transparent; // Transparence pour utiliser le dégradé
+        background-image: linear-gradient(to bottom, c.$color-primary, c.$color-secondary);
+        -webkit-background-image: linear-gradient(to bottom, c.$color-primary, c.$color-secondary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 0; // Pas de bordure pour le cœur plein
+        transition: opacity 0.3s ease; // Transition douce pour l'apparition
+        -webkit-transition: opacity 0.3s ease;
+    }
+
+    // Survol - Remplir le cœur
+    &:hover {
+        i.fa-regular.fa-heart {
+            opacity: 0; // Cacher le cœur vide
+        }
+
+        i.fa-solid.fa-heart {
+            opacity: 1; // Faire apparaître le cœur plein
+            z-index: 2; // Placer au-dessus
+        }
+    }
+}
