@@ -1,4 +1,6 @@
-![Aperçu du site](https://github.com/Valerie2a/OpenclassroomsProject/blob/main/screen.png?raw=true)
+
+[![Aperçu du site](https://github.com/Valerie2a/OpenclassroomsProject/blob/main/screen.png?raw=true)](https://valerie2a.github.io/OpenclassroomsProject/)
+
 
 
 
