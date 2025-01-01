@@ -54,14 +54,14 @@
 
   .search__city {
     border: transparent;
-    background-color: #EAEAEA;
+    background-color: c.$gray;
   }
 
   .placeholder {
     position: absolute;
     top: 50%; // L'élément est positionné avec top: 50%, ce qui place son haut à 50% de la hauteur du conteneur
     transform: translateY(-50%); // Déplace l'élément de 50% de sa propre hauteur vers le haut, ce qui le centre parfaitement
-    -webkit-transform: translateY(-50%); // Préfixe pour Safari
+    -webkit-transform: translateY(-50%); 
     color: c.$darkGray;
     pointer-events: none;
   }
@@ -288,7 +288,7 @@
     width: 100%;
     height: 175px;
     object-fit: cover;
-    -webkit-object-fit: cover; // Préfixe pour Safari
+    -webkit-object-fit: cover; 
 
   }
 }

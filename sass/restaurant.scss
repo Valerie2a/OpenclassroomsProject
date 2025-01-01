@@ -110,12 +110,17 @@
 
     &--heart {
         font-size: 24px;
-        color: black;
+        color: c.$black;
         cursor: pointer;
 
         @include mixin.desktop__responsive {
             position: relative;
             left: -30%;
+        }
+
+        @include mixin.table__responsive {
+            position: relative;
+            left: -25%;
         }
     }
 }
@@ -216,7 +221,7 @@
         width: 100%;
         padding: 4px;
         white-space: nowrap;//pas de retour à la ligne
-        overflow: hidden;//...texte caché si trop long
+        overflow: hidden;//texte caché si trop long
         text-overflow: ellipsis;//...ajouté si texte long
 
         @include mixin.desktop__responsive;
