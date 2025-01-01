@@ -199,19 +199,13 @@
 }
 .restaurant__intro--heart {
   font-size: 24px;
-  color: #353535;
+  color: black;
   cursor: pointer;
 }
 @media all and (min-width: 1024px) {
   .restaurant__intro--heart {
     position: relative;
     left: -30%;
-  }
-}
-@media all and (min-width: 768px) {
-  .restaurant__intro--heart {
-    position: relative;
-    left: -25%;
   }
 }
 
