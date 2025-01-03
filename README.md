@@ -1,4 +1,4 @@
-Le rendu de mon site en version mobile et en version desktop :
+Le rendu du site Oh my food en version mobile et en version desktop :
 [![Aperçu du site](https://github.com/Valerie2a/OpenclassroomsProject/blob/main/screen.png?raw=true)](https://valerie2a.github.io/OpenclassroomsProject/)
 
 
