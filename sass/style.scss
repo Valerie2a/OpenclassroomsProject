@@ -103,11 +103,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   margin: 0 auto; // Section centrée
   box-sizing: border-box;
   background-color: c.$white;
   gap: 20px;
+  padding : 25px 0 55px 0;
 
   @include mixin.table__responsive {
     gap: 20px;
@@ -141,18 +142,20 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 0;
+    padding-left: 35px;
     gap: 15px;
     width: 100%;
     counter-reset: steps;
 
     @include mixin.table__responsive {
+      padding-left: 0;
       flex-direction: row; // Affichage horizontal pour tablette
       gap: 20px;
       justify-content: space-around;
     }
 
     @include mixin.desktop__responsive {
+      padding-left: 0;
       flex-direction: row; // Affichage horizontal sur desktop
       gap: 25px;
       width: 100%;
@@ -167,14 +170,14 @@
     align-items: center;
     position: relative;
     border-radius: 15px;
-    gap: 15px;
+    gap: 25px;
     height: 70px;
-    padding: 25px;
+    padding: 35px;
     background-color: c.$LightGray;
     font-weight: bold;
     list-style: none;
     counter-increment: steps;
-    width: 100%; // En mobile, occupe toute la largeur
+    width: 95%; // En mobile, occupe toute la largeur
     &:hover {
       transform: scale(1.05);
       -webkit-transform: scale(1.05); 
@@ -186,11 +189,15 @@
 
     @include mixin.table__responsive {
       width: 48%; // Largeur ajustée pour tablette
+      gap: 15px;
+      padding: 25px;
     }
 
     @include mixin.desktop__responsive {
       width: 31%; // Les 3 éléments occupent toute la largeur en desktop
       height: 80px; // Hauteur ajustée pour le desktop
+      gap: 15px;
+      padding: 25px;
     }
 
     &::before { // numéros
@@ -198,15 +205,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
       background-color: c.$color-primary;
       color: white;
-      font-size: 1.2rem;
+      font-size: 1.0rem;
       font-weight: bold;
       border-radius: 50%;
       position: absolute;
-      left: -25px;
+      left: -15px;
       top: 50%;
       transform: translateY(-50%);
       -webkit-transform: translateY(-50%); 
@@ -224,7 +231,7 @@
 
   i {
     color: c.$color-primary;
-    font-size: 1.5rem; // Agrandissement des icônes
+    font-size: 1.2rem; // Agrandissement des icônes
   }
 }
 
@@ -363,6 +370,7 @@ p {
   &__logo {
     @include mixin.logo__footer;
     margin-left: 20px;
+    margin-top: 20px;
     line-height: normal;
   }
 
