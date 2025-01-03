@@ -14,7 +14,7 @@
     justify-content: center;
     box-sizing: border-box;
     padding: 0;
-    margin: 0;
+    margin: auto;
 }
 
 .header {
@@ -110,17 +110,12 @@
 
     &--heart {
         font-size: 24px;
-        color: c.$black;
+        color: black;
         cursor: pointer;
 
         @include mixin.desktop__responsive {
             position: relative;
             left: -30%;
-        }
-
-        @include mixin.table__responsive {
-            position: relative;
-            left: -25%;
         }
     }
 }
@@ -139,19 +134,17 @@
     display: flex;
     flex-direction: column;
     background-color: c.$LightGray;
-    width: 95%;
+    width: 100%;
     padding-bottom: 40px;
 
     @include mixin.desktop__responsive {
         align-items: center;
-        width: 100%;
     }
 
     @include mixin.table__responsive {
         align-items: center;
         position: relative;
         top: -40px;
-        width: 100%;
     }
 
     &--cards {
@@ -179,12 +172,8 @@
         font-size: 18px;
         font-weight: 300;
         margin: 1% 0;
-        padding: 10px 0 10px 10px;
+        padding: 10px 0;
         text-transform: uppercase;
-        @include mixin.desktop__responsive;
-        @include mixin.table__responsive {
-            padding: 10px 0;
-        }
 
         &::after {
             display: block;
@@ -194,7 +183,6 @@
             width: 45px;
             height: 4px;
             background-color: c.$color-tertiary;
-       
         }
     }
 }
@@ -205,7 +193,7 @@
     align-items: flex-start;
     position: relative;
     width: 97%;
-    height:80px;
+    height: 80px;
     border-radius: 15px;
     margin: 10px 0;
     background-color: c.$white;
@@ -226,14 +214,14 @@
 
     &--content {
         width: 100%;
-        padding: 16px 0px 16px 4px;
+        padding: 4px;
         white-space: nowrap;//pas de retour à la ligne
-        overflow: hidden;//texte caché si trop long
+        overflow: hidden;//...texte caché si trop long
         text-overflow: ellipsis;//...ajouté si texte long
 
         @include mixin.desktop__responsive;
         @include mixin.table__responsive {
-            padding: 24px;
+            padding: 16px;
         }
 
         p {
@@ -258,15 +246,15 @@
 .menu__cards--price {
     display: flex;
     align-items: flex-end;
-    width: 15%;
-    padding: 16px;
+    width: 23%;
+    padding: 4px;
     transition: transform 0.8s ease;
     -webkit-transition: transform 0.8s ease;
 
 
     @include mixin.desktop__responsive;
     @include mixin.table__responsive {
-        padding: 24px;
+        padding: 16px;
     }
 
     &--price p {
@@ -297,15 +285,11 @@
 .menu__cards:hover .menu__cards--slide{
     right: 0; //Rectangle devient visible 
 }
-.menu__cards:hover .menu__cards--price{
-    transform: translateX(-80%); // Décale uniquement le prix vers la gauche 
-    -webkit-transform: translateX(-80%);
+.menu__cards:hover .menu__cards--price {
+    transform: translateX(-30%); // Décale uniquement le prix vers la gauche 
+    -webkit-transform: translateX(-30%);
 }
-.menu__cards:hover .menu__cards--content {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: calc(100% - 30%); 
-}
+
 @keyframes slideUp {
     0% {
       transform: translateY(20%);
@@ -398,7 +382,6 @@
     &__logo {
         @include mixin.logo__footer;
         margin-left: 20px;
-        margin-top: 20px;
         line-height: normal;
     }
 

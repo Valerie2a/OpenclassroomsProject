@@ -91,7 +91,6 @@
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  margin: 0;
 }
 
 .body {
@@ -190,12 +189,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
   box-sizing: border-box;
   background-color: #ffffff;
   gap: 20px;
-  padding: 25px 0 55px 0;
 }
 @media all and (min-width: 768px) {
   .tutoriel {
@@ -232,14 +230,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 35px;
+  padding-left: 0;
   gap: 15px;
   width: 100%;
   counter-reset: steps;
 }
 @media all and (min-width: 768px) {
   .tutoriel ol {
-    padding-left: 0;
     flex-direction: row;
     gap: 20px;
     justify-content: space-around;
@@ -247,7 +244,6 @@
 }
 @media all and (min-width: 1024px) {
   .tutoriel ol {
-    padding-left: 0;
     flex-direction: row;
     gap: 25px;
     width: 100%;
@@ -261,14 +257,14 @@
   align-items: center;
   position: relative;
   border-radius: 15px;
-  gap: 25px;
+  gap: 15px;
   height: 70px;
-  padding: 35px;
+  padding: 25px;
   background-color: #F6F6F6;
   font-weight: bold;
   list-style: none;
   counter-increment: steps;
-  width: 95%;
+  width: 100%;
   box-shadow: 0 4px 10px 0 #d5d5d5;
 }
 .tutoriel li:hover {
@@ -281,16 +277,12 @@
 @media all and (min-width: 768px) {
   .tutoriel li {
     width: 48%;
-    gap: 15px;
-    padding: 25px;
   }
 }
 @media all and (min-width: 1024px) {
   .tutoriel li {
     width: 31%;
     height: 80px;
-    gap: 15px;
-    padding: 25px;
   }
 }
 .tutoriel li::before {
@@ -298,15 +290,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   background-color: #9356DC;
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   border-radius: 50%;
   position: absolute;
-  left: -15px;
+  left: -25px;
   top: 50%;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
@@ -322,7 +314,7 @@
 }
 .tutoriel i {
   color: #9356DC;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .restaurant {
@@ -463,7 +455,6 @@ p {
   font-family: Shrikhand, cursive;
   font-weight: 400;
   margin-left: 20px;
-  margin-top: 20px;
   line-height: normal;
 }
 .footer__menu {
